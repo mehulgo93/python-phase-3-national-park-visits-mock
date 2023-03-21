@@ -1,4 +1,4 @@
-
+from .trip import Trip
 
 class NationalPark:
 

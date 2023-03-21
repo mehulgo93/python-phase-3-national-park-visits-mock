@@ -79,69 +79,48 @@ build out any helper methods if needed.
 #### Trip
 
 - `Trip __init__(self, visitor, national_park, start_date, end_date)`
-  - Trips should be initialized with a visitor, national_park, start_date, end_date (a number)
-- `Trip property price`
-  - Returns the price for a coffee
-  - Price must be a number between 1 and 10, inclusive
+  - Trips should be initialized with a visitor, national_park, start_date(str), end_date(str)
 
 ### Object Relationship Methods and Properties
 
-#### Order
+#### Trip
 
-- `Order property customer`
-  - Returns the customer object for that order
-  - Must be of type `Customer`
-- `Order property coffee`
-  - Returns the coffee object for that order
-  - Must be of type `Coffee`
+- `Trip property Visitor`
+  - Returns the visitor object for that trip
+  - Must be of type `Visitor`
+- `Trip property NationalPark`
+  - Returns the NationalPark object for that trip
+  - Must be of type `NationalPark`
 
-#### Coffee
+#### Visitors
 
-- `Coffee orders()`
-  - Returns a list of all orders for that coffee
-  - orders must be of type `Order`
-- `Coffee customers()`
-  - Returns a **unique** list of all customers who have ordered a particular coffee.
-  - Customers must be of type `Customer`
+- `Visitor trips()`
+  - Returns a list of all trips for that visitor
+  - The list of trips must contain type `Trip`
+- `Visitor nationalparks()`
+  - Returns a **unique** list of all parks who that visitor has visited.
+  - The list of national parks must contain type `NationalPark` 
 
-#### Customer
+#### NationalPark
 
-- `Customer orders()`
-  - Returns a list of all orders a customer has ordered
-  - orders must be of type `Order`
-- `Customer coffees()`
-  - Returns a **unique** list of all coffees a customer has ordered
-  - Coffees must be of type `Coffee`
+- `NationalPark trips()`
+  - Returns a list of all trips planned for this national park
+  - The list of trips must contain type `trip`
+- `NationalPark visitors()`
+  - Returns a **unique** list of all visitors a national park has recieved
+  - The list of visitors must contain type `Visitor`
 
 ### Aggregate and Association Methods
 
-#### Customer
+#### Visitor
 
-- `Customer create_order(coffee, price)`
-  - given a **coffee object** and a price(as an integer), creates a
-    new order and associates it with that customer and coffee.
+- `Visitors create_trip(national_park, start_date, end_date)`
+  - given a **national park object**, a start_date and end_date (as a string), creates a
+    new Trip and associates it with that visitor and national park.
 
-#### Coffee
+#### National Park
 
-- `Coffee num_orders()`
-  - Returns the total number of times that coffee has been ordered
-- `Coffee average_price()`
-  - Returns the average price for a coffee based on its orders
-  - Reminder: you can calculate the average by adding up all the orders prices and
-    dividing by the number of orders
-
-### Bonus: For any invalid inputs raise an `Exception`.
-
-Uncomment the following lines in the test files:
-
-#### customer_tests.py
-
-- lines 37 - 45
-
-#### coffee_tests.py
-
-- lines 26 - 30
-
-#### order_tests.py
-
-- lines 20 - 30
+- `NationalPark total_visits()`
+  - Returns the total number of times that park has been visited
+- `NationalPark best_visitor()`
+  - Returns the Visitor 
