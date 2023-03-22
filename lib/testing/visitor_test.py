@@ -60,8 +60,8 @@ class TestVisitor:
 
         p1 = NationalPark('Alaska Wilds')
         p2 = NationalPark('Bryce Canyon')
-        t_1 = Trip(vis, p1, 2)
-        t_2 = Trip(vis, p2, 5)
+        t_1 = Trip(vis, p1, "","")
+        t_2 = Trip(vis, p2, "","")
 
         assert (vis in p1.visitors())
         assert (vis in p2.visitors())
